@@ -38,3 +38,13 @@
   package:
     name: virtualenv
     state: latest
+
+- name: install python-dev
+  package:
+    name: python-dev
+    state: latest
+
+- name: install python3.5-dev
+  package:
+    name: python3.5-dev
+    state: latest
