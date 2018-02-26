@@ -8,3 +8,8 @@
     name: 'git-review'
     virtualenv: "/home/{{ system_user }}/.venv"
     virtualenv_command: virtualenv
+
+- pip:
+    name: 'tox'
+    virtualenv: "/home/{{ system_user }}/.venv"
+    virtualenv_command: virtualenv
