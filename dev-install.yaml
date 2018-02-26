@@ -8,3 +8,4 @@
   roles: # Select the roles you want to install
     - dev-setup
     - virtualmachines
+    - containers

@@ -1,0 +1,29 @@
+---
+- name: Add docker gpg key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Add docker repository
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu trusty stable
+    state: present
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Run the equivalent of "apt-get update"
+  apt:
+    update_cache: yes
+  when: ansible_distribution == 'Ubuntu'
+
+- name: install docker-ce
+  package:
+    name: docker-ce
+    state: latest
+
+# Configure sudoless docker usage for user
+
+- name: add user to docker group
+  user:
+    name: "{{ system_user }}"
+    shell: "/bin/zsh"

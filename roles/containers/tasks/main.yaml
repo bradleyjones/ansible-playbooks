@@ -1,0 +1,4 @@
+---
+#Install and configure docker and containers
+
+- include_tasks: "docker-setup.yaml"
