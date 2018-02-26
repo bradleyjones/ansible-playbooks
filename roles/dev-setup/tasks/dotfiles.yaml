@@ -1,0 +1,35 @@
+---
+- name: clone dot files from github
+  git:
+    repo: "https://github.com/bradleyjones/dot"
+    dest: "/opt/dot"
+
+- name: create expected vim directories
+  file:
+    path: "/home/{{ system_user }}/.vim/autoload"
+    state: directory
+    owner: "{{ system_user }}"
+    group: "{{ system_user }}"
+
+- name: copy over dot files
+  file:
+    src: "/opt/dot/{{ item }}"
+    owner: "{{ system_user }}"
+    group: "{{ system_user }}"
+    dest: "/home/{{ system_user }}/.{{ item }}"
+    state: link
+  with_items:
+    - zshrc
+    - tmux.conf
+    - vimrc
+    - gitconfig
+
+- name: clone oh-my-zsh
+  git:
+    repo: "https://github.com/robbyrussell/oh-my-zsh"
+    dest: "/home/{{ system_user }}/.oh-my-zsh"
+
+- name: change default shell to zsh
+  user:
+    name: "{{ system_user }}"
+    shell: "/bin/zsh"

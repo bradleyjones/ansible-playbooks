@@ -1,0 +1,15 @@
+---
+- name: install virtualbox
+  package:
+    name: virtualbox
+    state: latest
+
+- name: install virtualbox-dkms
+  package:
+    name: virtualbox-dkms
+    state: latest
+
+- name: install linux headers
+  package:
+    name: linux-headers-generic
+    state: latest

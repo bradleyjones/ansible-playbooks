@@ -1,0 +1,10 @@
+---
+- name: Install basic dev env
+  hosts: hostname
+  become: true
+  vars: # These are the default role variables that can be overridden here
+    system_user: "user"
+
+  roles: # Select the roles you want to install
+    - dev-setup
+    - virtualmachines

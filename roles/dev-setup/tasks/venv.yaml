@@ -1,0 +1,10 @@
+---
+- pip:
+    name: 'gertty'
+    virtualenv: "/home/{{ system_user }}/.venv"
+    virtualenv_command: virtualenv
+
+- pip:
+    name: 'git-review'
+    virtualenv: "/home/{{ system_user }}/.venv"
+    virtualenv_command: virtualenv
