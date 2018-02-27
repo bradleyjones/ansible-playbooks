@@ -11,7 +11,7 @@
     owner: "{{ system_user }}"
     group: "{{ system_user }}"
 
-- name: copy over dot files
+- name: symlink dot files
   file:
     src: "/opt/dot/{{ item }}"
     owner: "{{ system_user }}"
@@ -23,6 +23,17 @@
     - tmux.conf
     - vimrc
     - gitconfig
+
+- name: copy over dot files
+  copy:
+    src: "/opt/dot/{{ item }}"
+    owner: "{{ system_user }}"
+    group: "{{ system_user }}"
+    dest: "/home/{{ system_user }}/.{{ item }}"
+    mode: 0600
+    remote_src: True
+  with_items:
+    - gertty.yaml
 
 - name: clone oh-my-zsh
   git:
