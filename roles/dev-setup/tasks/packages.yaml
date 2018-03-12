@@ -3,6 +3,13 @@
   package:
     name: language-pack-en
     state: latest
+  when: ansible_distribution == 'Ubuntu'
+
+- name: epel packages for centos
+  package:
+    name: epel-release
+    state: latest
+  when: ansible_distribution == 'CentOS'
 
 - name: install vim
   package:
@@ -34,17 +41,26 @@
     name: ctags
     state: latest
 
-- name: install virtualenv
-  package:
-    name: virtualenv
-    state: latest
-
-- name: install python-dev
+- name: install python-dev debian based
   package:
     name: python-dev
     state: latest
+  when: ansible_distribution == 'Ubuntu'
+
+- name: install python-dev centos based
+  package:
+    name: python-devel
+    state: latest
+  when: ansible_distribution == 'CentOS'
+
+- name: install python-pip centos based
+  package:
+    name: python-pip
+    state: latest
+  when: ansible_distribution == 'CentOS'
 
 - name: install python3.5-dev
   package:
     name: python3.5-dev
     state: latest
+  when: ansible_distribution == 'Ubuntu'

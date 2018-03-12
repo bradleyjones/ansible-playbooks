@@ -1,5 +1,8 @@
 ---
 - pip:
+    name: 'virtualenv'
+
+- pip:
     name: 'gertty'
     virtualenv: "/home/{{ system_user }}/.venv"
     virtualenv_command: virtualenv
