@@ -21,6 +21,7 @@
   with_items:
     - zshrc
     - tmux.conf
+    - tmux-airline
     - vimrc
     - gitconfig
 
