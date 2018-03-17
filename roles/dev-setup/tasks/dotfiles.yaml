@@ -45,3 +45,8 @@
   user:
     name: "{{ system_user }}"
     shell: "/bin/zsh"
+
+- name: Install vim plugins
+  user:
+    name: "{{ system_user }}"
+    shell: "vim +PlugInstall +qall"
