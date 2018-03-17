@@ -16,6 +16,11 @@
     name: vim
     state: latest
 
+- name: install curl
+  package:
+    name: curl  # dependency for vim setup of plugins
+    state: latest
+
 - name: install tmux
   package:
     name: tmux
