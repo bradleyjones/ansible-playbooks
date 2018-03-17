@@ -59,8 +59,8 @@
     state: latest
   when: ansible_distribution == 'CentOS'
 
-- name: install python3.5-dev
+- name: install python3-dev
   package:
-    name: python3.5-dev
+    name: python3-dev
     state: latest
   when: ansible_distribution == 'Ubuntu'
