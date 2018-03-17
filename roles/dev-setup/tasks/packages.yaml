@@ -53,11 +53,10 @@
     state: latest
   when: ansible_distribution == 'CentOS'
 
-- name: install python-pip centos based
+- name: install python-pip
   package:
     name: python-pip
     state: latest
-  when: ansible_distribution == 'CentOS'
 
 - name: install python3-dev
   package:
