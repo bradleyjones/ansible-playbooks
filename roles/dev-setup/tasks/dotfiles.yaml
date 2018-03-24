@@ -46,7 +46,12 @@
     name: "{{ system_user }}"
     shell: "/bin/zsh"
 
+- name: Install vim-plug
+  shell: >
+    curl -fLo /home/{{ system_user }}/.vim/autoload/plug.vim --create-dirs
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 - name: Install vim plugins
-  user:
-    name: "{{ system_user }}"
-    shell: "vim +PlugInstall +qall"
+  shell: "vim +PlugInstall +qall"
+  become: yes
+  become_user: "{{ system_user }}"
