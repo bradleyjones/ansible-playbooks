@@ -50,7 +50,7 @@
   package:
     name: python-dev
     state: latest
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
 
 - name: install python-dev centos based
   package:
@@ -67,4 +67,4 @@
   package:
     name: python3-dev
     state: latest
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
