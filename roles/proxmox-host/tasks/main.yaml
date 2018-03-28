@@ -1,0 +1,5 @@
+---
+#Install proxmox
+
+- include_tasks: "host-config.yaml"
+- include_tasks: "proxmox.yaml"

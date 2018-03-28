@@ -1,0 +1,36 @@
+---
+- name: Add proxmox gpg key
+  apt_key:
+    url: http://download.proxmox.com/debian/proxmox-ve-release-5.x.gpg
+    state: present
+  when: ansible_distribution == 'Debian'
+
+- name: Add proxmox repository
+  apt_repository:
+    repo: deb https://download.proxmox.com/debian/pve stretch pve-no-subscription
+    state: present
+  when: ansible_distribution == 'Debian'
+
+- name: Run the equivalent of "apt-get update"
+  apt:
+    update_cache: yes
+  when: ansible_distribution == 'Debian'
+
+- name: Update all packages to the latest version
+  apt:
+    upgrade: dist
+
+- name: install proxmox
+  package:
+    name: proxmox-ve
+    state: latest
+
+- name: install postfix
+  package:
+    name: postfix
+    state: latest
+    
+- name: install open-iscsi
+  package:
+    name: open-iscsi
+    state: latest
