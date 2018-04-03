@@ -1,7 +1,7 @@
 # Generated from Ansible playbook for Proxmox
 127.0.0.1   localhost
 ::1         localhost ip6-localhost ip6-loopback
-{{ hostvars[host]['ansible_eth0']['ipv4']['address'] }}  {{ host }}.myproxmox.com {{ host }} pvelocalhost
+{{ ansible_default_ipv4.address }}  {{ ansible_hostname }}.myproxmox.com {{ ansible_hostname }} pvelocalhost
 
 # The following lines are desirable for IPv6 capable hosts.
 fe00::0     ip6-localnet

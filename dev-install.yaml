@@ -9,4 +9,4 @@
     - dev-setup
     #- virtualmachines
     #- containers
-    #- proxmox
+    #- proxmox-host
