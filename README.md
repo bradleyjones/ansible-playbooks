@@ -5,3 +5,4 @@ Ansible playbooks for setting up dev env &amp; other services on NUCs
  - dev-setup - my generic setup required for development (dotfiles, packages, etc.)
  - virtualmachines - setup virtualbox
  - containers - setup docker
+ - proxmox - setup a proxmox host
