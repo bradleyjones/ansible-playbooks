@@ -36,6 +36,16 @@
     name: zsh
     state: latest
 
+- name: install htop
+  package:
+    name: htop
+    state: latest
+
+- name: install lm-sensors
+  package:
+    name: lm-sensors
+    state: latest
+
 - name: install mosh
   package:
     name: mosh
