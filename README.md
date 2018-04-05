@@ -1,5 +1,5 @@
-# nuc-playbooks
-Ansible playbooks for setting up dev env &amp; other services on NUCs
+# ansible-playbooks
+Ansible playbooks for setting up dev env &amp; other services
 
 ## roles
  - dev-setup - my generic setup required for development (dotfiles, packages, etc.)
