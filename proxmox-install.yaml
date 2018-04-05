@@ -1,0 +1,6 @@
+---
+- name: Install a proxmox host
+  hosts: myhost
+  become: true
+  roles: # Select the roles you want to install
+    - proxmox-host

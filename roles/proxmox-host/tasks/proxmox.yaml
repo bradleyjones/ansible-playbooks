@@ -19,6 +19,7 @@
 - name: Update all packages to the latest version
   apt:
     upgrade: dist
+  when: ansible_distribution == 'Debian'
 
 - name: install proxmox
   package:
