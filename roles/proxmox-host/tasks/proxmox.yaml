@@ -35,3 +35,9 @@
   package:
     name: open-iscsi
     state: latest
+
+- name: Remove enterprise proxmox repo from apt
+  apt_repository:
+    repo: deb https://enterprise.proxmox.com/debian/pve stretch pve-enterprise
+    state: absent
+  when: ansible_distribution == 'Debian' and not proxmox_enterprise
