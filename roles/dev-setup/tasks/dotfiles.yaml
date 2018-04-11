@@ -1,7 +1,7 @@
 ---
 - name: clone dot files from github
   git:
-    repo: "https://github.com/bradleyjones/dot"
+    repo: "https://github.com/bradleyjones/dotfiles"
     dest: "/opt/dot"
 
 - name: create expected vim directories
@@ -16,25 +16,25 @@
     src: "/opt/dot/{{ item }}"
     owner: "{{ system_user }}"
     group: "{{ system_user }}"
-    dest: "/home/{{ system_user }}/.{{ item }}"
+    dest: "/home/{{ system_user }}/{{ item }}"
     state: link
   with_items:
-    - zshrc
-    - tmux.conf
-    - tmux-airline
-    - vimrc
-    - gitconfig
+    - .zshrc
+    - .tmux.conf
+    - .tmux-airline
+    - .vimrc
+    - .gitconfig
 
 - name: copy over dot files
   copy:
     src: "/opt/dot/{{ item }}"
     owner: "{{ system_user }}"
     group: "{{ system_user }}"
-    dest: "/home/{{ system_user }}/.{{ item }}"
+    dest: "/home/{{ system_user }}/{{ item }}"
     mode: 0600
     remote_src: True
   with_items:
-    - gertty.yaml
+    - .gertty.yaml
 
 - name: clone oh-my-zsh
   git:
